@@ -1,0 +1,50 @@
+<section id="header">
+  <a href="/"><img src="/images/logo.png" class="logoh" alt="logo" /></a>
+  <div>
+    <ul id="navbar">
+      <li><a id="home-nav" href="/">Home</a></li>
+      <li><a id="conference-nav" href="/conferences">Conferences</a></li>
+      <li>
+        <a id="manage-conference-nav" href="/manage-conference"
+          >Add Conference</a
+        >
+      </li>
+      <a href="#" id="close"><i class="fa fa-times"></i></a>
+    </ul>
+  </div>
+  <div id="mobile">
+    <i id="bar" class="fa fa-outdent"></i>
+  </div>
+</section>
+
+<script>
+  const bar = document.getElementById("bar");
+  const nav = document.getElementById("navbar");
+  const close = document.getElementById("close");
+
+  // set active class on current page
+  const path = window.location.pathname;
+  const home = document.getElementById("home-nav");
+  const conference = document.getElementById("conference-nav");
+  const manage = document.getElementById("manage-conference-nav");
+
+  if (path === "/") {
+    home.classList.add("active");
+  } else if (path === "/conferences") {
+    conference.classList.add("active");
+  } else if (path === "/manage-conference") {
+    manage.classList.add("active");
+  }
+
+  if (bar) {
+    bar.addEventListener("click", () => {
+      nav.classList.add("active");
+    });
+  }
+
+  if (close) {
+    close.addEventListener("click", () => {
+      nav.classList.remove("active");
+    });
+  }
+</script>
